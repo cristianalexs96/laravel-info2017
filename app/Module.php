@@ -9,8 +9,6 @@ class Module extends Model
 
     protected $table = 'modules';
 
-    protected $fillable = ['nombre', 'descripcion', 'dias', 'horario'];
-
     public function courses()
     {
         return $this->belongsTo('App\Course');

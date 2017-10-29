@@ -19,6 +19,7 @@ class CreateProfessorsTable extends Migration
             $table->integer('course_id')->unsigned();
             $table->foreign('module_id')->references('module_id')->on('modules');
             $table->foreign('course_id')->references('course_id')->on('courses');
+            $table->timestamps();
         });
     }
 

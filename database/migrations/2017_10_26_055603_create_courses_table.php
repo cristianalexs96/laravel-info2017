@@ -21,6 +21,7 @@ class CreateCoursesTable extends Migration
             $table->date('final');
             $table->string('dirección');
             $table->string('localidad');
+            $table->timestamps();
         });
     }
 
