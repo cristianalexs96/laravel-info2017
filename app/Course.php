@@ -8,6 +8,8 @@ class Course extends Model
 {
     protected $table = 'courses';
 
+    protected $fillable = ['nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad'];
+
     public function modules(){
 
         return $this->hasMany('App\Module');
