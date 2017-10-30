@@ -14,8 +14,8 @@
 Route::name('hola')->get('/', function () {
     return view('welcome');
 });
-Route::name('create_course_path')->get('/courses/create','CourseController@create');
-Route::name('store_course_path')->post('/courses','CourseController@store');
-Route::name('edit_course_path')->get('/courses/{course}/edit', 'CourseController@edit');
-Route::name('update_course_path')->put('/courses/{course}', 'CourseController@update');
-Route::name('delete_course_path')->delete('/courses/{course}', 'CourseController@delete');
+Route::name('create_course_path')->get('/courses/create','CoursesController@create');
+Route::name('store_course_path')->post('/courses','CoursesController@store');
+Route::name('edit_course_path')->get('/courses/{course}/edit', 'CoursesController@edit');
+Route::name('update_course_path')->put('/courses/{course}', 'CoursesController@update');
+Route::name('delete_course_path')->delete('/courses/{course}', 'CoursesController@delete');

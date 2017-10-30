@@ -25,10 +25,12 @@ class CreateCourseRequest extends FormRequest
     {
         return [
 
-                'nombre'=>'required',
+                'nombre'=>'required|unique:courses',
+                'descripcion'=>'required',
                 'inicio' => 'required|date',
                 'final' => 'required|date',
-                'direccion'=>'required'
+                'direccion'=>'required',
+                'localidad'=>'required'
 
 
         ];

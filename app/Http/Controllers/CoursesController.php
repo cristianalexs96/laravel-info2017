@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Course; 
 
-class CourseController extends Controller
+class CoursesController extends Controller
 {
     public function create()
     {
