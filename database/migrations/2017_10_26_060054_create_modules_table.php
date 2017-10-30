@@ -14,11 +14,11 @@ class CreateModulesTable extends Migration
     public function up()
     {
         Schema::create('modules', function (Blueprint $table) {
-            $table->increments('module_id');
+            $table->increments('id');
             $table->integer('course_id')->unsigned();
             $table->string('nombre');
-            $table->text('descripción');
-            $table->foreign('course_id')->references('course_id')->on('courses');
+            $table->text('descripcion');
+            $table->foreign('course_id')->references('id')->on('courses');
             $table->string('dias');
             $table->dateTime('horarios');
             $table->timestamps();

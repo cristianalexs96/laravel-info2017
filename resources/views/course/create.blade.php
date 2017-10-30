@@ -47,8 +47,8 @@
 
 			<div class="form-group">
 				
-				<label for="descripción">DESCRIPCION</label>
-				<textarea rows="5" name="descripción" class="form-control">{{ old('descripción') }}</textarea>
+				<label for="descripcion">DESCRIPCION</label>
+				<textarea rows="5" name="descripcion" class="form-control">{{ old('descripcion') }}</textarea>
 
 			</div>
 
@@ -70,7 +70,7 @@
 			<div class="form-group">
 				
 				<label for="">DIRECCION</label>
-				<input type="text" name="dirección" class='form-control' value="{{ old('dirección') }}"/>
+				<input type="text" name="direccion" class='form-control' value="{{ old('direccion') }}"/>
 
 			</div>
 

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateCourseRequest;
+use App\Http\Requests\UpdateCourseRequest;
 use Illuminate\Http\Request;
 
 use App\Course; 
@@ -10,30 +12,42 @@ class CourseController extends Controller
 {
     public function create()
     {
-    	return view ('course/create');
+    	return view ('course.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateCourseRequest $request)
     {
 
-        $this->validate($request,[
-            'nombre'=>'required',
-            'inicio' => 'required|date',
-            'final' => 'required|date',
-            'dirección'=>'required'
-        ]);
+
+        $course = Course::create($request->only('nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad'));
+
+        return redirect()->route('hola');
 
 
-        $course = new Course;
-        $course->nombre = $request->get('nombre');
-        $course->descripción = $request->get('descripción');
-        $course->inicio = $request->get('inicio');
-        $course->final = $request->get('final');
-        $course->dirección = $request->get('dirección');
-        $course->localidad = $request->get('localidad');
-        $course->save();
 
-        dd($request->all());
+    }
+
+    public function edit(Course $course)
+    {
+        return view('course.edit')->with(['course' => $course]);
+    }
+
+    public function update(Course $course, UpdateCourseRequest $request)
+    {
+        $course->update(
+
+            $request->only('nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad')
+        );
+
+        return redirect()->route('hola');  #--------modificar el redirect con las rutas correctas
+    }
+
+    public function delete(Course $course)
+    {
+
+        $course->delete();
+
+        return redirect()->route('hola'); #----modificar ruta correcta
 
     }
 }
