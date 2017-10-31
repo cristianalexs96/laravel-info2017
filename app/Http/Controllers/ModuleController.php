@@ -8,7 +8,7 @@ class ModulesController extends Controller
 {
         public function index()
     {
-        $course = Module::orderBy('id', 'desc')->paginate(10);
+        $module = Module::orderBy('id', 'desc')->paginate(10);
         return view('modules.index')->with(['modules' => $module]);
     }
     public function show(Module $module)
@@ -22,7 +22,7 @@ class ModulesController extends Controller
     }
     public function store(CreateModulesRequest $request)
     {
-        $course = Module::create($request->only('nombre', 'descripcion', 'Dia', 'Horario', 'Docente'));
+        $module = Module::create($request->only('nombre', 'descripcion', 'Dia', 'Horario', 'Docente'));
         return redirect()->route('exito');
     }
     public function edit(Module $module)
