@@ -1,30 +1,44 @@
 <?php
-
 namespace App\Http\Controllers;
-
+use App\Http\Requests\CreateModuleRequest;
+use App\Http\Requests\UpdateModuleRequest;
 use Illuminate\Http\Request;
-
-class ModuleController extends Controller
+use App\Module; 
+class ModulesController extends Controller
 {
-	public fuction delete(module $modules)
-{
-$modules->delete();
-return redirect()->route('delete_post_path');
-}
-public function create()
-{
-    return view('modules.create');
-}
-public function store(CreatePostRequest $request){
-    	
-
-   	$modules= new module;
-    $modules->nombre = $request->get('nombre');
-    $modules->descripcion = $request->get('descripcion');
-    $modules->docente = $request->get('docente');
-    $modules->save();
-
-    return redirect()->route('posts_path');
+        public function index()
+    {
+        $course = Module::orderBy('id', 'desc')->paginate(10);
+        return view('modules.index')->with(['modules' => $module]);
     }
-    //
+    public function show(Module $module)
+    {
+
+        return view('modules.show')->with(['modules' => $module]);
+    }
+    public function create()
+    {
+        return view ('modules.create');
+    }
+    public function store(CreateModulesRequest $request)
+    {
+        $course = Module::create($request->only('nombre', 'descripcion', 'Dia', 'Horario', 'Docente'));
+        return redirect()->route('exito');
+    }
+    public function edit(Module $module)
+    {
+        return view('modules.edit')->with(['modules' => $module]);
+    }
+    public function update(Modules $module, UpdateModuleRequest $request)
+    {
+        $module->update(
+            $request->only('nombre', 'descripcion', 'Dia', 'Horario', 'Docente')
+        );
+        return redirect()->route('exito'); 
+    }
+    public function delete(Module $module)
+    {
+        $module->delete();
+        return redirect()->route('exito'); 
+    }
 }
