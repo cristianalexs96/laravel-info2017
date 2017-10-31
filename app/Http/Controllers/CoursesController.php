@@ -10,6 +10,25 @@ use App\Course;
 
 class CoursesController extends Controller
 {
+
+        public function index()
+    {
+        $course = Course::orderBy('id', 'desc')->paginate(10);
+
+        return view('courses.index')->with(['courses' => $course]);
+    }
+
+    public function show(Course $course)
+    {
+        //$post = Post::find($postID);
+
+       // if( is_null($post)) {
+          //  abort(404); }
+
+        return view('courses.show')->with(['courses' => $course]);
+    }
+
+
     public function create()
     {
     	return view ('courses.create');
