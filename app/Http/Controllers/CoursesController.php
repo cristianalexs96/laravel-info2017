@@ -18,12 +18,9 @@ class CoursesController extends Controller
     public function store(CreateCourseRequest $request)
     {
 
-
         $course = Course::create($request->only('nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad'));
 
         return redirect()->route('hola');
-
-
 
     }
 
