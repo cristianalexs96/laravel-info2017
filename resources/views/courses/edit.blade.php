@@ -41,7 +41,7 @@
 
 
 
-        <form action="{{ route('update_course_path', ['courses' => $course->id]) }}" method="POST">
+        <form action="{{ route('update_course_path', ['course' => $course->id]) }}" method="POST">
 
         {{csrf_field()}}
 
