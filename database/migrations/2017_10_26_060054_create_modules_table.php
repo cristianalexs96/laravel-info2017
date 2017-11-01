@@ -17,7 +17,7 @@ class CreateModulesTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->text('descripción');
-            $table->foreign(course_id)->references('id')->on('courses');
+            $table->foreign(courses_id)->references('id')->on('courses');
             $table->string('dias');
             $table->dateTime('horarios');
         });
