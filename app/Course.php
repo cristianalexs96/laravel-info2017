@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-    protected $table = 'Course';
+    protected $table = 'courses';
+
+    protected $fillable = ['nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad'];
 
     public function modules(){
 
