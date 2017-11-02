@@ -15,13 +15,18 @@ class CoursesController extends Controller
     
 	public function index( ) 
 	{
-		$courses = Course::with( 'modules' )->orderBy( 'id', 'desc' )->paginate( 10 );
+		$courses = Course::orderBy( 'id', 'desc' )->paginate( 10 );
 		return view( 'courses.index', [ 'courses' => $courses] );
 	}
 
 	public function show( Course $course) 
 	{
-		return view( 'courses.show' );
+		$modules = $course->modules;
+		//dd($modules);
+		return view( 'courses.show' )->with( [
+			'course' => $course, 
+			'modules' => $modules
+		] );
 	}
 
 	public function create( ) 
