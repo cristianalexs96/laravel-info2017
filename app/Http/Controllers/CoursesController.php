@@ -45,7 +45,11 @@ class CoursesController extends Controller
 
     public function edit(Course $course)
     {
+<<<<<<< HEAD
         return view('courses.edit')->with(['courses' => $course]);
+=======
+        return view('courses.edit')->with(['course' => $course]);
+>>>>>>> origin/Cristian
     }
 
     public function update(Course $course, UpdateCourseRequest $request)
