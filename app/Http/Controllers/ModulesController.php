@@ -42,8 +42,12 @@ class ModulesController extends Controller
 		return view( 'modules.show' );
 	}
 
-	public function delete( Course $course )
+	public function delete( Module $module )
 	{
-		return view( 'modules.index' );
+		$module->delete();
+
+		session()->flash( 'message', 'Modulo eliminado!' );
+
+		return redirect()->route( 'modules.index' );
 	}
 }

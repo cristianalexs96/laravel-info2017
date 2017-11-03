@@ -10,15 +10,19 @@
 		@foreach ( $courses as $course )
 			<li>
 				{{ $course->nombre }} 
-				<a href="{{ route( 'courses.show', [ 'course' => $course->id ] ) }}" >
+				<a class="btn btn-success" href="{{ route( 'courses.show', [ 'course' => $course->id ] ) }}" >
 					VER
 				</a>
-				<a href="{{ route( 'courses.edit', [ 'course' => $course->id ] ) }}" >
+				<a class="btn btn-info" href="{{ route( 'courses.edit', [ 'course' => $course->id ] ) }}" >
 					EDITAR
 				</a>
-				<a href="{{ route( 'courses.destroy', [ 'course' => $course->id ] ) }}">
-					ELIMINAR
-				</a>
+				<form action="{{ route( 'courses.destroy', [ 'course' => $course->id ] ) }}" method="POST">
+						{{ csrf_field() }}
+
+						{{ method_field( 'DELETE' ) }}
+
+						<button type="submit" class="btn btn-danger">ELIMINAR</button>
+				</form>	
 			<li>
 		@endforeach
 	</ul>

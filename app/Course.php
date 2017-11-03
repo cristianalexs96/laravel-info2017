@@ -8,10 +8,14 @@ use App\Student;
 use App\Professor;
 
 class Course extends Model
-{
+{   
     protected $table = 'courses';
 
+    //protected $primaryKey = 'course_id';
+
     protected $fillable = ['nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad'];
+    
+    protected $dates = [ 'deleted_at' ];
 
     public function modules(){
 

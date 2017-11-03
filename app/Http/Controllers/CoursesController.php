@@ -52,8 +52,19 @@ class CoursesController extends Controller
 		return view( 'courses.show' );
 	}
 
-	public function delete( Course $course )
+	public function destroy( Course $course )
 	{
-		return view( 'courses.index' );
+		$modules = $course->modules;
+
+		foreach( $modules as $module ) {
+			$module->delete();
+		}
+
+		$course->delete();
+
+
+		session()->flash( 'message', 'Curso eliminado!' );
+		
+		return redirect()->route( 'courses.index' );
 	}
 }
