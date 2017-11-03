@@ -10,13 +10,13 @@ class Professor extends Model
 
     public function modules(){
 
-        return $this->belongsToMany('App\Module');
+        return $this->belongsToMany(App\Module::class);
 
     }
 
     public function courses()
     {
-        return $this->belongsToMany('App\Course');
+        return $this->belongsToMany(App\Course::class);
     }
 
 }

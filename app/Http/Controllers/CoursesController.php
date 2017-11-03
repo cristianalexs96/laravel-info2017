@@ -7,9 +7,26 @@ use App\Http\Requests\UpdateCourseRequest;
 use Illuminate\Http\Request;
 
 use App\Course; 
+use App\Module;
 
 class CoursesController extends Controller
 {
+
+    public function index( ) 
+    {
+        $courses = Course::orderBy( 'id', 'desc' )->paginate( 10 );
+        return view( 'courses.index', [ 'courses' => $courses] );
+    }
+    public function show(Course $course) 
+    {
+        $modules = $course->module;
+        #dd($modules);
+        return view('courses.show')->with( [
+            'course' => $course,
+            'modules' => $modules,
+        ] );
+    }
+
     public function create()
     {
     	return view ('courses.create');
@@ -18,36 +35,42 @@ class CoursesController extends Controller
     public function store(CreateCourseRequest $request)
     {
 
-
         $course = Course::create($request->only('nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad'));
 
         return redirect()->route('hola');
-
-
 
     }
 
     public function edit(Course $course)
     {
         return view('courses.edit')->with(['course' => $course]);
+
     }
 
     public function update(Course $course, UpdateCourseRequest $request)
     {
         $course->update(
 
-            $request->only('nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad')
+            $request->only('id', 'nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad')
         );
 
-        return redirect()->route('hola');  #--------modificar el redirect con las rutas correctas
+        return redirect()->route('hola');
     }
 
-    public function delete(Course $course)
+    public function destroy( Course $course )
     {
+        $modules = $course->modules;
 
-        $course->delete();
-
-        return redirect()->route('hola'); #----modificar ruta correcta
-
+        if ($modules==null){
+            $course->delete();
+        }
+        else{
+        foreach( $modules as $module ) {
+            $module->delete();
+        }
+        $course->delete();}
+        session()->flash( 'message', 'Curso eliminado!' );
+        
+        return redirect()->route( 'course_path' );
     }
 }

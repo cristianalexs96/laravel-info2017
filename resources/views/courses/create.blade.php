@@ -55,18 +55,20 @@
 
 			<div class="form-group">
 				
-				<label for="">FECHA DE INICIO</label>
-				<input type="date" name="inicio" class='form-control' value="{{ old('inicio') }}"/>
 
+			<div class="row">
+			  <div class="col-md-6">
+			  	<label for="inicio">FECHA INICIO</label>
+			    <input type="date" name="inicio" class="form-control" value="{{ old('inicio') }}"/>
+			  </div>
+			  <div class="col-md-6">
+			  	<label for="final">FECHA FIN</label>
+			    <input type="date" name="final" class="form-control" value="{{ old('fin') }}"/>
+			  </div>
 			</div>
 
-			<div class="form-group">
-				
-				<label for="">FECHA DE FINALIZACION</label>
-				<input type="date" name="final" class='form-control' value="{{ old('final') }}"/>
 
-			</div>
-
+                               <br
 			<div class="form-group">
 				
 				<label for="">DIRECCION</label>

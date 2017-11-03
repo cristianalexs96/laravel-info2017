@@ -23,14 +23,16 @@ class CreateCourseRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
 
-                'nombre'=>'required|unique:courses,id'.$this->get('id'),
-                'descripcion'=>'required',
-                'inicio' => 'required|date',
-                'final' => 'required|date',
+
+                'nombre'=>'required|unique:courses,nombre|min:6|max:80',
+                'descripcion'=>'required|min:20|max:255',
+                'inicio' => 'required|date|after:today',
+                'final' => 'required|date|after:inicio',
                 'direccion'=>'required',
-                'localidad'=>'required'
+                'localidad'=>'required',
 
 
         ];
