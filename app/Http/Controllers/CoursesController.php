@@ -11,21 +11,15 @@ use App\Course;
 class CoursesController extends Controller
 {
 
-        public function index()
+    public function index( ) 
     {
-        $course = Course::orderBy('id', 'desc')->paginate(10);
-
-        return view('courses.index')->with(['courses' => $course]);
+        $course=Course::orderBy( 'id', 'desc' )->paginate( 10 );
+        return view( 'courses.index', [ 'courses' => $course] );
     }
 
-    public function show(Course $course)
+    public function show( Course $course) 
     {
-        //$post = Post::find($postID);
-
-       // if( is_null($post)) {
-          //  abort(404); }
-
-        return view('courses.show')->with(['courses' => $course]);
+        return view( 'courses.show' );
     }
 
 
@@ -45,11 +39,8 @@ class CoursesController extends Controller
 
     public function edit(Course $course)
     {
-<<<<<<< HEAD
-        return view('courses.edit')->with(['courses' => $course]);
-=======
         return view('courses.edit')->with(['course' => $course]);
->>>>>>> origin/Cristian
+
     }
 
     public function update(Course $course, UpdateCourseRequest $request)

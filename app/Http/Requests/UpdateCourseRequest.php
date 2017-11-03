@@ -6,5 +6,5 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateCourseRequest extends CreateCourseRequest
 {
-
+	
 }

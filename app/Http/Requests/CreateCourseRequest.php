@@ -25,11 +25,7 @@ class CreateCourseRequest extends FormRequest
     {
         return [
 
-<<<<<<< HEAD
-                'nombre'=>'required|unique:courses,id,' .$this->get('id'),
-=======
-                'nombre'=>'required|unique:courses,id'.$this->get('id'),
->>>>>>> origin/Cristian
+                'nombre'=>'required|unique:courses',
                 'descripcion'=>'required',
                 'inicio' => 'required|date',
                 'final' => 'required|date',

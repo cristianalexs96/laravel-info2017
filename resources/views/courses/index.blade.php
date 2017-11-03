@@ -2,7 +2,7 @@
 
 @section( 'content' )
 
-	<h1>List of Courses</h1>
+	<h1>Lista de Cursos</h1>
 
 	<hr/>
 

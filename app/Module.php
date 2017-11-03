@@ -11,17 +11,17 @@ class Module extends Model
 
     public function courses()
     {
-        return $this->belongsTo('App\Course');
+        return $this->belongsTo(App\Course::class);
     }
 
     public function professors()
     {
-        return $this->belongsToMany(App\Professor);
+        return $this->belongsToMany(App\Professor::class);
     }
 
     public function students()
     {
-        return $this->belongsToMany(App\Student);
+        return $this->belongsToMany(App\Student::class);
     }
 
 

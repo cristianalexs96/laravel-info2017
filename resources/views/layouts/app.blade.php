@@ -36,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="">Create Post</a></li>
+                        <li><a href="">Crear Curso</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
