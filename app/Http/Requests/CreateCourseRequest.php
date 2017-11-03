@@ -23,14 +23,16 @@ class CreateCourseRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
 
-                'nombre'=>'required|unique:courses',
-                'descripcion'=>'required',
+
+                'nombre'=>'required|unique:courses,nombre|min:6|max:80',
+                'descripcion'=>'required|min:20|max:255',
                 'inicio' => 'required|date',
                 'final' => 'required|date',
                 'direccion'=>'required',
-                'localidad'=>'required'
+                'localidad'=>'required',
 
 
         ];

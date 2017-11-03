@@ -22,6 +22,7 @@ class CreateCoursesTable extends Migration
             $table->string('direccion');
             $table->string('localidad');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

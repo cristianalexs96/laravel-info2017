@@ -10,6 +10,8 @@ class Course extends Model
 
     protected $fillable = ['nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad'];
 
+    protected $dates = [ 'deleted_at' ];
+
     public function modules(){
 
         return $this->hasMany(App\Module::class);
@@ -27,5 +29,6 @@ class Course extends Model
         return $this->belongsToMany(App\Professor::class);
 
     }
+
 
 }

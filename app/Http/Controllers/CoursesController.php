@@ -7,21 +7,25 @@ use App\Http\Requests\UpdateCourseRequest;
 use Illuminate\Http\Request;
 
 use App\Course; 
+use App\Module;
 
 class CoursesController extends Controller
 {
 
     public function index( ) 
     {
-        $course=Course::orderBy( 'id', 'desc' )->paginate( 10 );
-        return view( 'courses.index', [ 'courses' => $course] );
+        $courses = Course::orderBy( 'id', 'desc' )->paginate( 10 );
+        return view( 'courses.index', [ 'courses' => $courses] );
     }
-
-    public function show( Course $course) 
+    public function show(Course $course) 
     {
-        return view( 'courses.show' );
+        $modules = $course->module;
+        #dd($modules);
+        return view('courses.show')->with( [
+            'course' => $course,
+            'modules' => $modules,
+        ] );
     }
-
 
     public function create()
     {
@@ -47,18 +51,26 @@ class CoursesController extends Controller
     {
         $course->update(
 
-            $request->only('nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad')
+            $request->only('id', 'nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad')
         );
 
-        return redirect()->route('hola');  #--------modificar el redirect con las rutas correctas
+        return redirect()->route('hola');
     }
 
-    public function delete(Course $course)
+    public function destroy( Course $course )
     {
+        $modules = $course->modules;
 
-        $course->delete();
-
-        return redirect()->route('hola'); #----modificar ruta correcta
-
+        if ($modules==null){
+            $course->delete();
+        }
+        else{
+        foreach( $modules as $module ) {
+            $module->delete();
+        }
+        $course->delete();}
+        session()->flash( 'message', 'Curso eliminado!' );
+        
+        return redirect()->route( 'course_path' );
     }
 }
