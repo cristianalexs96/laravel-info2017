@@ -40,7 +40,7 @@
 
 
 
-        <form action="{{ route('update_module_path', ['module' => $module->id]) }}" method="POST">
+        <form action="{{ route('courses.update', ['module' => $module->id]) }}" method="POST">
 
         {{csrf_field()}}
 

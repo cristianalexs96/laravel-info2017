@@ -20,9 +20,8 @@ class CoursesController extends Controller
     public function show(Course $course) 
     {
         $modules = $course->module;
-        #dd($modules);
         return view('courses.show')->with( [
-            'course' => $course,
+            'courses' => $course,
             'modules' => $modules,
         ] );
     }
@@ -37,7 +36,7 @@ class CoursesController extends Controller
 
         $course = Course::create($request->only('nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad'));
 
-        return redirect()->route('hola');
+        return redirect()->route('courses.index');
 
     }
 
@@ -54,23 +53,24 @@ class CoursesController extends Controller
             $request->only('id', 'nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad')
         );
 
-        return redirect()->route('hola');
+        return redirect()->route('courses.index');
     }
 
-    public function destroy( Course $course )
+    public function destroy(Course $course )
     {
         $modules = $course->modules;
 
-        if ($modules==null){
-            $course->delete();
-        }
-        else{
+        if (!is_null($modules))
+        {
+
         foreach( $modules as $module ) {
-            $module->delete();
+            $module->delete();          }
+
         }
-        $course->delete();}
+
+        $course->delete();
         session()->flash( 'message', 'Curso eliminado!' );
         
-        return redirect()->route( 'course_path' );
+        return redirect()->route( 'courses.index' );
     }
 }

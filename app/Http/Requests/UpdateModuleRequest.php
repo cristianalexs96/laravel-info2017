@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Foundation\Http\CreateModuleRequest;
 
-class CreateCourseRequest extends FormRequest
+class UpdateModuleRequest extends CreateModuleRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,19 +24,8 @@ class CreateCourseRequest extends FormRequest
      */
     public function rules()
     {
-
         return [
-
-
-                'nombre'=>'required|unique:courses|min:6|max:80',
-                'course_id'=>'required',
-                'descripcion'=>'required|min:20|max:255',
-                'inicio' => 'required|date',
-                'final' => 'required|date',
-                'direccion'=>'required',
-                'localidad'=>'required',
-
-
+            //
         ];
     }
 }

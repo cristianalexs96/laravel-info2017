@@ -10,13 +10,11 @@
 		@foreach ( $modules as $module )
 			
 			<br><br>	{{ $module->nombre }} <br/>
-				<a href="{{ route( 'module_path', [ 'module' => $module->id ] ) }}" >
-					VER
-				</a>
-				<a href="{{ route( 'edit_module_path', [ 'module' => $module->id ] ) }}" >
+
+				<a href="{{ route( 'modules.edit', [ 'module' => $module->id ] ) }}" >
 					EDITAR
 				</a>
-				<a href="{{ route( 'delete_module_path', [ 'module' => $module->id ] ) }}">
+				<a href="{{ route( 'modules.destroy', [ 'module' => $module->id ] ) }}">
 					ELIMINAR
 				</a>
 			<br/>

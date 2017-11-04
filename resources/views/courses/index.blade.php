@@ -17,16 +17,16 @@
 			@foreach ( $courses as $course )
 			
 				<br><br> {{$course->nombre}} <br/>
-				<form action="{{ route( 'course_path', [ 'course' => $course->id ] ) }}" >
-					<button type="submit" class="btn btn-info">VER</button>
+				<form action="{{ route( 'courses.show', [ 'course' => $course->id ] ) }}" >
+					<button type="submit" class="btn btn-success">VER</button>
 	
-				<a href="{{ route('edit_course_path', ['course' => $course->id]) }}" 
+				<a href="{{ route('courses.edit', ['course' => $course->id]) }}" 
 					class="btn btn-info">EDITAR</a>
 	
-				<form action="{{ route( 'delete_course_path', [ 'course' => $course->id ] ) }}" method="POST">
+				<form action="{{ route('courses.destroy', [ 'course' => $course->id ] ) }}" method="POST">
 						{{ csrf_field() }}
 
-						{{ method_field( 'DELETE' ) }}
+						{{ method_field('DELETE') }}
 
 						<button type="submit" class="btn btn-danger">ELIMINAR</button>
 

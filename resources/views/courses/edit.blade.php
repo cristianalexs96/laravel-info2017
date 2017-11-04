@@ -41,7 +41,7 @@
 
 
 
-        <form action="{{ route('update_course_path', ['course' => $course->id]) }}" method="POST">
+        <form action="{{ route('courses.update', ['course' => $course->id]) }}" method="POST">
 
         {{csrf_field()}}
 
@@ -66,26 +66,20 @@
 
             </div>
 
-
-
             <div class="form-group">
-
-                <label for="">FECHA DE INICIO</label>
-
+            <div class="row">
+              <div class="col-md-6">
+                <label for="inicio">FECHA INICIO</label>
                 <input type="date" name="inicio" class="form-control" value="{{ $course->inicio }}"/>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="">FECHA DE FIN</label>
-
+              </div>
+              <div class="col-md-6">
+                <label for="final">FECHA FIN</label>
                 <input type="date" name="final" class="form-control" value="{{ $course->final}}"/>
-
+              </div>
             </div>
 
 
+            <br
 
             <div class="form-group">
 

@@ -38,7 +38,7 @@
 
 			<div class="form-group">
 				
-				<label for="">NOMBRE</label>
+				<label for="nombre">NOMBRE</label>
 				<input type="text" name="nombre" class='form-control' value="{{ old('nombre') }}"/>
 
 			</div>
@@ -71,14 +71,14 @@
                                <br
 			<div class="form-group">
 				
-				<label for="">DIRECCION</label>
+				<label for="direccion">DIRECCION</label>
 				<input type="text" name="direccion" class='form-control' value="{{ old('direccion') }}"/>
 
 			</div>
 
 			<div class="form-group">
 				
-				<label for="">LOCALIDAD</label>
+				<label for="localidad">LOCALIDAD</label>
 				<input type="text" name="localidad" class='form-control' value="{{ old('localidad') }}"/>
 
 			</div>

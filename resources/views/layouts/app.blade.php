@@ -38,13 +38,10 @@
                     </a>
                 </div>
 
-                <br><a href="{{ route( 'create_course_path') }}">
+                <br><a href="{{ route( 'courses.create') }}">
                     Crear Curso
                 </a>
 
-                <br><a href="{{ route( 'create_module_path') }}">
-                    Crear Modulo
-                </a>
             
 
                     </ul>
