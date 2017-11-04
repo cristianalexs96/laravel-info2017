@@ -21,6 +21,7 @@ class CoursesController extends Controller
 
 	public function show( Course $course) 
 	{
+
 		$modules = $course->modules;
 		//dd($modules);
 		return view( 'courses.show' )->with( [
