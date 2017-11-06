@@ -15,7 +15,7 @@ Route::name('hola')->get('/', function () {
     return view('welcome');
 });
 
-Route::resource('courses', 'CoursesController', ['except' => ['destroy']] );
+Route::resource('courses', 'CoursesController', ['except' => ['destroy', 'store' ] ] );
 
 Route::name('store_course_path')->post('/courses', 'CoursesController@store');
 

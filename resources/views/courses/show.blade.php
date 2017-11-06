@@ -4,7 +4,7 @@
 @section( 'content' )
 
 	<h1>Curso: {{$courses->nombre}}</h1>
-
+	<p>{{ $courses->descripcion }}</p>
 	
 
 	<h2>Modulos correspondientes:</h2>
@@ -25,9 +25,7 @@
 
 			@foreach( $modules as $module )
 				 <br><br>	{{ $module->nombre }} <br/>
-
-
-
+			
 				<a href="{{ route('edit_module_path', ['module' => $module->id]) }}" 
 					class="btn btn-info">EDITAR</a>
 	
