@@ -20,10 +20,10 @@ class CreateModulesTable extends Migration
             $table->text('descripcion');
             $table->foreign('course_id')->references('id')->on('courses');
             $table->string('dias');
-            $table->text('hsinicio');
-            $table->text('hsfin');
-            $table->timestamps();
+            $table->time('hsinicio');
+            $table->time('hsfin');
             $table->softDeletes();
+            $table->timestamps();
         });
     }
 

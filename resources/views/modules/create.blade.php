@@ -65,21 +65,22 @@
 
 			</div>
 
-			<div class="form-group">
-				
-				<label for="hsinicio">Horario de inicio</label>
-				<input type="time" name="hsinicio" class='form-control' value="{{ old('hsinicio') }}"/>
 
+			<div class="row">
+			  <div class="col-md-6">
+			  	<label for="hsinicio">HORARIO DE INICIO</label>
+			    <input type="time" name="hsinicio" class="form-control" value="{{ old('hsinicio') }}"/>
+			  </div>
+
+			  <div class="col-md-6">
+			  	<label for="hsfin">HORARIO DE FIN</label>
+			    <input type="time" name="hsfin" class="form-control" value="{{ old('hsfin') }}"/>
+			  </div>
 			</div>
 
-			<div class="form-group">
-				
-				<label for="hsfin">Horario de fin</label>
-				<input type="time" name="hsfin" class='form-control' value="{{ old('hsfin') }}"/>
-
-			</div>
 
 			<div class="form-group">
+				<br>
 				
 				<button type="submit" class='btn btn-primary'>CREAR</button>
 

@@ -29,7 +29,7 @@ class ModulesController extends Controller
 
         $module = Module::create($request->only('course_id', 'nombre', 'descripcion', 'dias', 'hsinicio','hsfin'));
 
-        return redirect()->route('modules.index');
+        return redirect()->route('courses.index');
 
     }
 
@@ -45,13 +45,14 @@ class ModulesController extends Controller
             $request->only('nombre', 'descripcion', 'dias', 'hsinicio','hsfin')
         );
 
-        return redirect()->route('modules.index'); 
+        return redirect()->route('module_path'); 
     }
 
-    public function delete( Module $module )
+    public function delete(Module $module)
     {
+
         $module->delete();
         session()->flash( 'message', 'Modulo eliminado!' );
-        return redirect()->route( 'modules.index' );
+        return redirect()->route('courses.index');
     }
 }

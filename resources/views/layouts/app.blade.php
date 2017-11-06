@@ -37,10 +37,7 @@
                         {{ config('app.name', 'Informatorio') }}
                     </a>
                 </div>
-
-                <br><a href="{{ route( 'courses.create') }}">
-                    Crear Curso
-                </a>
+                <br><br><br>
 
             
 
