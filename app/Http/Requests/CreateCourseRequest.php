@@ -28,10 +28,9 @@ class CreateCourseRequest extends FormRequest
 
 
                 'nombre'=>'required|unique:courses|min:6|max:80',
-                'course_id'=>'required',
                 'descripcion'=>'required|min:20|max:255',
-                'inicio' => 'required|date',
-                'final' => 'required|date',
+                'inicio' => 'required|date|after:today',
+                'final' => 'required|date|after:inicio',
                 'direccion'=>'required',
                 'localidad'=>'required',
 

@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Foundation\Http\CreateModuleRequest;
+use App\Http\Requests\CreateModuleRequest;
 
 class UpdateModuleRequest extends CreateModuleRequest
 {

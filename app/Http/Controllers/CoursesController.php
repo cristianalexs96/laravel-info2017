@@ -19,7 +19,7 @@ class CoursesController extends Controller
     }
     public function show(Course $course) 
     {
-        $modules = $course->module;
+        $modules = $course->modules;
         return view('courses.show')->with( [
             'courses' => $course,
             'modules' => $modules,
@@ -56,11 +56,11 @@ class CoursesController extends Controller
         return redirect()->route('courses.index');
     }
 
-    public function destroy(Course $course )
+    public function delete(Course $course )
     {
         $modules = $course->modules;
 
-        if (!is_null($modules))
+        if ( ! is_null ($modules) )
         {
 
         foreach( $modules as $module ) {

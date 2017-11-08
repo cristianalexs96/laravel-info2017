@@ -11,13 +11,17 @@
 			
 			<br><br>	{{ $module->nombre }} <br/>
 
-				<a href="{{ route( 'modules.edit', [ 'module' => $module->id ] ) }}" >
-					EDITAR
-				</a>
-				<a href="{{ route( 'modules.destroy', [ 'module' => $module->id ] ) }}">
-					ELIMINAR
-				</a>
-			<br/>
+				<a href="{{ route('edit_module_path', ['module' => $module->id]) }}" 
+					class="btn btn-info">EDITAR</a>
+	
+				<form action="{{ route('delete_module_path', [ 'module' => $module->id ] ) }}" method="POST">
+						{{ csrf_field() }}
+
+						{{ method_field('DELETE') }}
+
+						<button type="submit" class="btn btn-danger">ELIMINAR</button>
+
+				</form>
 
 		@endforeach
 	</ul>
