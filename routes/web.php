@@ -43,6 +43,8 @@ Route::name('store_locality_path')->post('/localitys', 'LocalityController@store
 
 Route::name('edit_locality_path')->get('/localitys/{locality}/edit', 'LocalityController@edit');
 
+Route::name('update_locality_path')->put('/localitys/{locality}', 'LocalityController@update');
+
 
 
 

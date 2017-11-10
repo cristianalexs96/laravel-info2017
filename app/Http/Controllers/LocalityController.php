@@ -16,8 +16,8 @@ class LocalityController extends Controller
 
     public function index( ) 
     {
-        $locality = Locality::orderBy( 'id', 'nombre' )->paginate( 10 );
-        return view( 'localitys.index', [ 'localitys' => $locality] );
+        $localitys = Locality::orderBy( 'id', 'nombre' )->paginate( 10 );
+        return view( 'localitys.index', [ 'localitys' => $localitys] );
     }
 
 
@@ -31,13 +31,13 @@ class LocalityController extends Controller
 
         $locality = Locality::create($request->only('nombre'));
 
-        return redirect()->route('localitys.index');
+        return redirect()->route('locality_path');
 
     }
 
     public function edit(Locality $locality)
     {
-        return view('localitys.edit')->with(['localitys' => $locality]);
+        return view('localitys.edit')->with(['locality' => $locality]);
 
     }
 
@@ -48,7 +48,7 @@ class LocalityController extends Controller
             $request->only('nombre')
         );
 
-        return redirect()->route('localitys.index');
+        return redirect()->route('locality_path');
     }
   
 }

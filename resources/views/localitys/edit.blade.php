@@ -41,7 +41,7 @@
 
 
 
-        <form action="{{ route('update_locality_path', ['Locality' => $locality->id]) }}" method="POST">
+        <form action="{{ route('update_locality_path', ['localitys' => $locality->id]) }}" method="POST">
 
             {{ csrf_field() }}
 

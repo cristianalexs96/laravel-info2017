@@ -26,12 +26,10 @@ class CreateLocalityRequest extends FormRequest
 
         return [
 
-
-                'id'=>'required',
                 'nombre'=>'required|min:5|max:50',
 
 
         ];
     }
 }
-}
+
