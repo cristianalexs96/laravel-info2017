@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProfessorsTable extends Migration
+class CreateLocalityTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateProfessorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('professors', function (Blueprint $table) {
+        Schema::create('localitys', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('module_id')->unsigned();
-            $table->integer('course_id')->unsigned();
-            $table->foreign('module_id')->references('id')->on('modules');
-            $table->foreign('course_id')->references('id')->on('courses');
+            $table->text('nombre',191);
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateProfessorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('professors');
+        //
     }
 }

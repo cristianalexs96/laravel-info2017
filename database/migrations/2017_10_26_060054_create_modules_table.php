@@ -15,10 +15,15 @@ class CreateModulesTable extends Migration
     {
         Schema::create('modules', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('course_id')->unsigned();
             $table->string('nombre');
-            $table->text('descripción');
-            $table->foreign(course_id)->references('id')->on('courses');
-            $table->text('Docente');
+            $table->text('descripcion');
+            $table->foreign('course_id')->references('id')->on('courses');
+            $table->string('dias');
+            $table->time('hsinicio');
+            $table->time('hsfin');
+            $table->softDeletes();
+            $table->timestamps();
         });
     }
 

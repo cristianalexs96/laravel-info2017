@@ -4,16 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-use App\Module;
-use App\Student;
-use App\Professor;
-
-
-class Course extends Model
+class Locality extends Model
 {
-    protected $table = 'courses';
+	protected $table = 'localitys';
 
-    protected $fillable = ['nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad'];
+    protected $fillable = ['nombre'];
 
 
     public function modules(){
