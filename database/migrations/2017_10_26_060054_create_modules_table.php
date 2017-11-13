@@ -16,8 +16,8 @@ class CreateModulesTable extends Migration
         Schema::create('modules', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('course_id')->unsigned();
-            $table->string('nombre');
-            $table->text('descripcion');
+            $table->string('nombre',191);
+            $table->text('descripcion',191);
             $table->foreign('course_id')->references('id')->on('courses');
             $table->string('dias');
             $table->time('hsinicio');

@@ -32,7 +32,7 @@ class UpdateCourseRequest extends FormRequest
                 'inicio' => 'required|date',
                 'final' => 'required|date',
                 'direccion'=>'required',
-                'localidad'=>'required',
+
 
 
         ];

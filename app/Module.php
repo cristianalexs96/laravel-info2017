@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Student;
 use App\Professor;
 use App\Course;
+use App\Locality;
 
 
 class Module extends Model

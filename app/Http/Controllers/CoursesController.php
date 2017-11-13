@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Course; 
 use App\Module;
+use App\Locality;
 
 class CoursesController extends Controller
 {
@@ -23,18 +24,22 @@ class CoursesController extends Controller
         return view('courses.show')->with( [
             'courses' => $course,
             'modules' => $modules,
+            
         ] );
     }
 
     public function create()
     {
-    	return view ('courses.create');
+    
+        $localitys = Locality::all();
+
+        return view ('courses.create')->with(['localitys' => $localitys]);
     }
 
     public function store(CreateCourseRequest $request)
     {
 
-        $course = Course::create($request->only('nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad'));
+        $course = Course::create($request->only('nombre', 'descripcion', 'inicio', 'final', 'direccion','localidad'));
 
         return redirect()->route('courses.index');
 
@@ -50,7 +55,7 @@ class CoursesController extends Controller
     {
         $course->update(
 
-            $request->only('id', 'nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad')
+            $request->only('id', 'nombre', 'descripcion', 'inicio', 'final', 'direccion')
         );
 
         return redirect()->route('courses.index');

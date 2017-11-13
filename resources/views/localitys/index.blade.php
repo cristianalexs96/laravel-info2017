@@ -8,11 +8,12 @@
 
 	<ul>
 		@foreach ( $localitys as $locality )
-			
 			<br><br>	{{ $locality->nombre }} <br/>
+
 
 				<a href="{{ route('edit_locality_path', ['localitys' => $locality->id]) }}" 
 					class="btn btn-info">EDITAR</a>
+					
 
 
 		@endforeach

@@ -16,8 +16,9 @@ class LocalityController extends Controller
 
     public function index( ) 
     {
-        $localitys = Locality::orderBy( 'id', 'nombre' )->paginate( 10 );
-        return view( 'localitys.index', [ 'localitys' => $localitys] );
+
+        $localitys = Locality::orderBy( 'id', 'name' )->paginate( 10 );
+        return view( 'localitys.index',compact('localitys') );
     }
 
 

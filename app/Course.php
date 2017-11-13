@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 use App\Module;
 use App\Student;
 use App\Professor;
+use App\Locality;
 
 
 class Course extends Model
 {
     protected $table = 'courses';
 
-    protected $fillable = ['nombre', 'descripcion', 'inicio', 'final', 'direccion', 'localidad'];
+    protected $fillable = ['nombre', 'descripcion', 'inicio', 'final', 'direccion', 'locality_id'];
 
 
     public function modules(){

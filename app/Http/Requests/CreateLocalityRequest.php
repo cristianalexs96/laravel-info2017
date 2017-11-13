@@ -29,6 +29,7 @@ class CreateLocalityRequest extends FormRequest
                 'nombre'=>'required|min:5|max:50',
 
 
+
         ];
     }
 }

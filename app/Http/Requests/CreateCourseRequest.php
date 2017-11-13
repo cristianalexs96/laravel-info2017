@@ -32,7 +32,6 @@ class CreateCourseRequest extends FormRequest
                 'inicio' => 'required|date|after:today',
                 'final' => 'required|date|after:inicio',
                 'direccion'=>'required',
-                'localidad'=>'required',
 
 
         ];

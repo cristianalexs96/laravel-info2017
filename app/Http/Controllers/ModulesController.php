@@ -5,6 +5,7 @@ use App\Http\Requests\UpdateModuleRequest;
 use Illuminate\Http\Request;
 use App\Module;
 use App\Course;
+use App\Locality;
 
 class ModulesController extends Controller
 {

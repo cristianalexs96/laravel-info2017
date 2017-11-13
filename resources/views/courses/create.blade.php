@@ -32,9 +32,12 @@
 			</div>
 		@endif
 		
-		<form action="{{ route('store_course_path') }}" method="POST">
+		<form action="{{ route('store_courses_path') }}" method="POST">
+		
 
 			{{ csrf_field() }}
+
+			
 
 			<div class="form-group">
 				
@@ -65,23 +68,15 @@
 			  	<label for="final">FECHA FIN</label>
 			    <input type="date" name="final" class="form-control" value="{{ old('fin') }}"/>
 			  </div>
+
+			<div class="col-lg-4"> 
+				<label for="Localidad">Localidad</label>
+				{!!Form::select('locality',$localitys)!!}
+	
 			</div>
 
 
-                               <br
-			<div class="form-group">
-				
-				<label for="direccion">DIRECCION</label>
-				<input type="text" name="direccion" class='form-control' value="{{ old('direccion') }}"/>
 
-			</div>
-
-			<div class="form-group">
-				
-				<label for="localidad">LOCALIDAD</label>
-				<input type="text" name="localidad" class='form-control' value="{{ old('localidad') }}"/>
-
-			</div>
 
 			<div class="form-group">
 				

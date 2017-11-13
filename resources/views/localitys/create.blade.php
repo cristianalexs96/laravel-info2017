@@ -41,6 +41,7 @@
 				<label for="nombre">NOMBRE</label>
 				<input type="text" name="nombre" class='form-control' value="{{ old('nombre') }}"/>
 
+
 			</div>
 
 

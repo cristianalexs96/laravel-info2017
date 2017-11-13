@@ -45,6 +45,9 @@ Route::name('edit_locality_path')->get('/localitys/{locality}/edit', 'LocalityCo
 
 Route::name('update_locality_path')->put('/localitys/{locality}', 'LocalityController@update');
 
+Route::resource('locality','LocalityController@create' );
+
+
 
 
 

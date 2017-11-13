@@ -15,14 +15,15 @@ class CreateCoursesTable extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->increments('id')->unique();
-            $table->string('nombre');
-            $table->text('descripcion');
+            $table->integer('locality_id')->unsigned();
+            $table->string('nombre',191);
+            $table->text('descripcion',191);
             $table->date('inicio');
             $table->date('final');
-            $table->string('direccion');
-            $table->string('localidad');
+            $table->string('direccion',191);
             $table->softDeletes();
             $table->timestamps();
+            $table->foreign('locality_id')->references('id')->on('localitys');
         });
     }
 
